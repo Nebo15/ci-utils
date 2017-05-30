@@ -43,7 +43,7 @@ echo " - Previous version was ${PREVIOUS_VERSION}"
 echo " - There was ${MAJOR_CHANGES} major, ${FEATURE_CHANGES} feature and ${MINOR_CHANGES} changes since then"
 echo " - Next version will be ${NEXT_VERSION}"
 
-if [[ "${MAJOR_CHANGES}" == "0" && "${FEATURE_CHANGES}" == "0" && "${MINOR_CHANGES}" == "0" ]]; then
+if [[ "${REQUIRE_VERSION_TAGS}" == "true" && "${MAJOR_CHANGES}" == "0" && "${FEATURE_CHANGES}" == "0" && "${MINOR_CHANGES}" == "0" ]]; then
   echo
   echo "[ERROR] No version changes was detected."
   exit 1

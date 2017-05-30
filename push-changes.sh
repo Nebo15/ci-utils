@@ -3,6 +3,8 @@
 # You need to specify $DOCKER_HUB_ACCOUNT, $DOCKER_USERNAME and $DOCKER_PASSWORD before using this script.
 set -e
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 echo "Logging in into Docker Hub";
 docker login -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD};
 
@@ -28,7 +30,7 @@ if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
   echo "Maintenance branch: ${MAINTENANCE_BRANCH}"
 
   if [[ "${TRAVIS_BRANCH}" == "${TRUNK_BRANCH}" && "${BUILD_REQUIRES_MAINTENANCE}" == "0" || "${TRAVIS_BRANCH}" == "${MAINTENANCE_BRANCH}" ]]; then
-    ./bin/ci/release.sh -a $DOCKER_HUB_ACCOUNT -t $TRAVIS_BRANCH -l;
+    ${DIR}/push-container.sh -a $DOCKER_HUB_ACCOUNT -t $TRAVIS_BRANCH -l;
 
     if [[ "${GITHUB_TOKEN}" != "" ]]; then
       echo "Done. Pushing changes back to origin repo.";

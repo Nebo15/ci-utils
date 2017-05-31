@@ -30,6 +30,8 @@ fi;
 
 if [[ ${MAJOR_CHANGES} != "0" || ${FEATURE_CHANGES} != "0" ]]; then
   NEXT_MINOR_VERSION="0"
+elif [[ ${MINOR_CHANGES} == "0" ]]; then
+  NEXT_MINOR_VERSION=$(expr ${parts[2]} + 1)
 else
   NEXT_MINOR_VERSION=$(expr ${parts[2]} + ${MINOR_CHANGES})
 fi;

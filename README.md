@@ -1,3 +1,3 @@
 # ci-utils
 
-Continuous Integration scripts for different languages.
+Continuous Integration scripts for Elixir projects.

@@ -12,10 +12,12 @@ echo "    adding parent host '${HOST_NAME}' with IP '${HOST_IP}'."
 
 # Allow to pass -i option to start container in interactive mode
 OPTS="-d"
-while getopts "i" opt; do
+ARGS=""
+while getopts "ia:" opt; do
   case "$opt" in
     i)  OPTS="-it --rm"
         ;;
+    a)  ARGS="${OPTARG}"
   esac
 done
 
@@ -24,5 +26,5 @@ docker run -p 4000:4000 -p 4001:4001 -p 4002:4002 \
        ${OPTS} \
        --add-host=$HOST_NAME:$HOST_IP \
        --name ${PROJECT_NAME} \
-       "${PROJECT_NAME}:${PROJECT_VERSION}"
+       $ARGS "${PROJECT_NAME}:${PROJECT_VERSION}"
 

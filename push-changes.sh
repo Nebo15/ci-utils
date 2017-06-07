@@ -21,7 +21,7 @@ fi;
 
 if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
   # Commit incremented version
-  git add mix.exs docs;
+  git add package.json docs;
   git commit -m "Increment version [ci skip]";
 
   echo "Current branch: ${TRAVIS_BRANCH}"

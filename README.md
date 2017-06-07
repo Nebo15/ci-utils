@@ -1,3 +1,3 @@
 # ci-utils
 
-Continuous Integration scripts for Elixir projects.
+Continuous Integration scripts for Node projects.

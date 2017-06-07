@@ -27,4 +27,3 @@ docker run -p 4000:4000 -p 4001:4001 -p 4002:4002 \
        --add-host=$HOST_NAME:$HOST_IP \
        --name ${PROJECT_NAME} \
        "${ARGS}" "${PROJECT_NAME}:${PROJECT_VERSION}"
-

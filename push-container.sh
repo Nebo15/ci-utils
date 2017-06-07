@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script simplifies releasing a new Docker image of your release.
 # It will run following steps:
-#   1. Create git tag with version number specified in mix.exs
+#   1. Create git tag with version number specified in package.json
 #   2. Tag Docker container that is created by build.sh script to a Docker Hub repo.
 #   3. Upload changes to Docker Hub.
 #

@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script builds an image based on a Dockerfile and mix.exs that is located in root of git working tree.
+# This script builds an image based on a Dockerfile and package.json that is located in root of git working tree.
 set -e
 
 echo "[I] Building a Docker container '${PROJECT_NAME}' (version '${PROJECT_VERSION}') from path '${PROJECT_DIR}'.."

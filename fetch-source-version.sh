@@ -1,5 +1,6 @@
 # Get latest version
 PREVIOUS_VERSION=$(git describe HEAD^1 --abbrev=0 --tags)
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 # Get release notes
 if [[ $PREVIOUS_VERSION == "" ]]; then
@@ -52,13 +53,17 @@ if [[ "${REQUIRE_VERSION_TAGS}" == "true" && "${MAJOR_CHANGES}" == "0" && "${MIN
 fi;
 
 # Do not allow to build new versions in master when release is in maintenance mode
-MAINTENANCE_BRANCH="v${NEXT_MAJOR_VERSION}.${NEXT_MINOR_VERSION}"
+if [[ "${CURRENT_BRANCH}" =~ ^v[0-9]*\.[0-9]*$ ]]; then
+  MAINTENANCE_BRANCH="v${parts[0]}.${parts[1]}"
+else
+  MAINTENANCE_BRANCH="v${NEXT_MAJOR_VERSION}.${NEXT_MINOR_VERSION}"
+fi;
 
-git fetch origin "v${parts[0]}.${parts[1]}" &> /dev/null
+git fetch origin "${MAINTENANCE_BRANCH}" &> /dev/null
 if [[ "$?" == "0" ]]; then
   BUILD_REQUIRES_MAINTENANCE="1"
 else
-  BUILD_REQUIRES_MAINTENANCE=$(git branch --list | grep "v${parts[0]}.${parts[1]}" | wc -l)
+  BUILD_REQUIRES_MAINTENANCE=$(git branch --list | grep "${MAINTENANCE_BRANCH}" | wc -l)
   BUILD_REQUIRES_MAINTENANCE=$(expr $BUILD_REQUIRES_MAINTENANCE + 0)
 fi;
 

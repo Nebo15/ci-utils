@@ -34,9 +34,9 @@ if [[ "${CHANGELOG}" == "" ]]; then
   CHANGELOG="${GIT_HISTORY_CLEANED}"
 fi;
 
-CHANGELOG="${CHANGELOG/\[major\]/}"
-CHANGELOG="${CHANGELOG/\[minor\]/}"
-CHANGELOG="${CHANGELOG/\[patch\]/}"
+CHANGELOG="${CHANGELOG//\[major\]/}"
+CHANGELOG="${CHANGELOG//\[minor\]/}"
+CHANGELOG="${CHANGELOG//\[patch\]/}"
 
 echo
 echo "Changelog: "

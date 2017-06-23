@@ -17,7 +17,7 @@ while getopts "ia:" opt; do
   case "$opt" in
     i)  OPTS="-it --rm"
         ;;
-    a)  ARGS=$(eval -ne "echo ${OPTARG}")
+    a)  ARGS=$(eval -e "echo ${OPTARG}")
   esac
 done
 

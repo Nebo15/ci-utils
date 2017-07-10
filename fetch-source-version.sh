@@ -6,7 +6,7 @@ fi;
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 # Get release notes
-if [[ $PREVIOUS_VERSION == "" ]]; then
+if [[ "${PREVIOUS_VERSION}" == "0.1.0" ]]; then
   GIT_HISTORY=$(git log --no-merges --format="- %s (%an)")
 else
   GIT_HISTORY=$(git log --no-merges --format="- %s (%an)" $PREVIOUS_VERSION..HEAD)

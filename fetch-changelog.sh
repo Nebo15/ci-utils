@@ -15,15 +15,15 @@ OTHER_CHANGES=$(expr $OTHER_CHANGES + 0)
 
 CHANGELOG=""
 if [[ "${MAJOR_CHANGES}" != "" ]]; then
-  CHANGELOG="${CHANGELOG}**Major changes**: "$'\n'"${MAJOR_CHANGES}"$'\n'
+  CHANGELOG="${CHANGELOG}**Major changes**: "$'\n'"${MAJOR_CHANGES}"$'\n\n'
 fi;
 
 if [[ "${MINOR_CHANGES}" != "" ]]; then
-  CHANGELOG="${CHANGELOG}**Minor changes**: "$'\n'"${MINOR_CHANGES}"$'\n'
+  CHANGELOG="${CHANGELOG}**Minor changes**: "$'\n'"${MINOR_CHANGES}"$'\n\n'
 fi;
 
 if [[ "${PATCH_CHANGES}" != "0" ]]; then
-  CHANGELOG="${CHANGELOG}**Patches and bug fixes**: "$'\n'"${PATCH_CHANGES}"$'\n'
+  CHANGELOG="${CHANGELOG}**Patches and bug fixes**: "$'\n'"${PATCH_CHANGES}"$'\n\n'
 fi;
 
 if [[ "${OTHER_CHANGES}" != "0" ]]; then

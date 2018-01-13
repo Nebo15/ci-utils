@@ -62,7 +62,7 @@ else
     exit 1
   else
     echo "[I] Creating git tag '${RELEASE_VERSION}'.."
-    git tag -a ${RELEASE_VERSION} -m "${CHANGELOG}"$'\n'$'\n'"Container URL: https://hub.docker.com/r/${DOCKER_HUB_ACCOUNT}/${PROJECT_NAME}/tags/${RELEASE_VERSION}/"
+    git tag -a ${RELEASE_VERSION} -m "${CHANGELOG}"$'\n'$'\n'"https://cloud.docker.com/app/${DOCKER_HUB_ACCOUNT}/repository/docker/${DOCKER_HUB_ACCOUNT}/${PROJECT_NAME}/tags/${RELEASE_VERSION}/"
   fi
 fi
 
